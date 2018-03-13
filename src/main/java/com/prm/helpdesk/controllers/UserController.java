@@ -50,8 +50,8 @@ public class UserController {
 				return ResponseEntity.badRequest().body(response);
 			}
 			user.setSenha(passwordEncoder.encode(user.getSenha()));
-			User UsuarioPersistido = this.userService.createOrUpdate(user);
-			response.setData(UsuarioPersistido);
+			User usuarioPersistido = this.userService.createOrUpdate(user);
+			response.setData(usuarioPersistido);
 			
 		} catch (DuplicateKeyException dKE) {
 			response.getErrors().add("Email já cadastrado.");
@@ -78,8 +78,8 @@ public class UserController {
 				return ResponseEntity.badRequest().body(response);
 			}
 			user.setSenha(passwordEncoder.encode(user.getSenha()));
-			User UsuarioPersistido = this.userService.createOrUpdate(user);
-			response.setData(UsuarioPersistido);
+			User usuarioPersistido = this.userService.createOrUpdate(user);
+			response.setData(usuarioPersistido);
 	
 		} catch (Exception e) {
 			response.getErrors().add(e.getMessage());
